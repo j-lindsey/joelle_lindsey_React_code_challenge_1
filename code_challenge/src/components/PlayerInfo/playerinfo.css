@@ -1,0 +1,17 @@
+.playerInput{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 500px;
+}
+.playerInput label{
+    padding: 10px;
+    width: 350px;
+}
+
+.playerInput input{
+    margin-left: 10px;
+}
