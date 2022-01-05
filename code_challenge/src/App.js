@@ -4,11 +4,10 @@ import PlayerInfo from './components/PlayerInfo/playerinfo';
 function App() {
   return (
     <div className="App">
-     <header>
+      <header>
         <h1 className="title">Tic Tac Toe</h1>
-        <PlayerInfo />
-     </header>
-
+      </header>
+      <PlayerInfo />
     </div>
   );
 }
