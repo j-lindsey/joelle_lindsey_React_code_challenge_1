@@ -16,3 +16,8 @@
     border-right: 1px solid magenta;
     border-left: 1px solid magenta;
 }
+
+.fontIcon {
+    padding: 0 10px;
+    color: magenta;
+}

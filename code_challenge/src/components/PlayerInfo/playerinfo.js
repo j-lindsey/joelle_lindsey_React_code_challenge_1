@@ -18,6 +18,7 @@ class PlayerInfo extends React.Component {
 
         this.handlePlayerInfo = this.handlePlayerInfo.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
     }
 
     componentDidMount() {
@@ -39,6 +40,14 @@ class PlayerInfo extends React.Component {
         const { name } = event.target;
         let value = event.target.value;
         this.setState({ [name]: value });
+    }
+
+    changeCurrentPlayer(){
+        if(this.state.currentPlayer === this.state.player1Name){
+            this.setState({currentPlayer: this.state.player2Name})
+        }else{
+            this.setState({currentPlayer: this.state.player1Name})
+        }
     }
 
 
@@ -65,7 +74,7 @@ class PlayerInfo extends React.Component {
                         </div>
                     )}
                 </div>
-                <GameBoard currentPlayer={currentPlayer} player1={player1Name} player2={player2Name} />
+                <GameBoard currentPlayer={currentPlayer} player1={player1Name} player2={player2Name} changeCurrentPlayer={this.changeCurrentPlayer} />
             </div>
         )
     }
