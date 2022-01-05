@@ -1,4 +1,4 @@
-.playerInput{
+.playerInput {
     background-color: white;
     color: black;
     display: flex;
@@ -7,11 +7,31 @@
     padding: 20px;
     width: 500px;
 }
-.playerInput label{
+
+.playerInput label {
     padding: 10px;
     width: 350px;
 }
 
-.playerInput input{
+.playerInput input {
     margin-left: 10px;
+}
+
+.playerDisplay {
+    display: flex;
+    justify-content: space-between;
+}
+
+.playerDisplay h2 {
+    color: magenta;
+    margin: 30px;
+    padding: 20px;
+}
+
+.fontIcon {
+    padding: 0 10px;
+}
+
+.active{
+    border: 1px solid magenta;
 }
