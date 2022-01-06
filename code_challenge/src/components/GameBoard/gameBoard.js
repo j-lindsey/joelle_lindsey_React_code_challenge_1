@@ -23,7 +23,7 @@ class GameBoard extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.checkForWinner = this.checkForWinner.bind(this);
-
+        this.resetGame = this.resetGame.bind(this);
     }
 
     checkForWinner() {
@@ -80,6 +80,22 @@ class GameBoard extends React.Component {
         }
     }
 
+    resetGame() {
+        this.setState({
+            one: '',
+            two: '',
+            three: '',
+            four: '',
+            five: '',
+            six: '',
+            seven: '',
+            eight: '',
+            nine: '',
+            winner: '',
+            disableBoard: false
+        })
+    }
+
     render() {
         const { one, two, three, four, five, six, seven, eight, nine } = this.state;
 
@@ -100,6 +116,7 @@ class GameBoard extends React.Component {
                     <div id='eight' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={eight} /></div>
                     <div id='nine' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={nine} /></div>
                 </div>
+                <button onClick={this.resetGame}>Play Again?</button>
             </div>
         );
     }
