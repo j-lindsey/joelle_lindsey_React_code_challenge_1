@@ -19,12 +19,16 @@ class GameBoard extends React.Component {
             eight: '',
             nine: '',
             winner: '',
-            disableBoard: false
+            isWinner: false,
+            disableBoard: false,
+            alreadyTaken: false
         };
         this.handleClick = this.handleClick.bind(this);
         this.checkForWinner = this.checkForWinner.bind(this);
         this.resetGame = this.resetGame.bind(this);
         this.resetPlayers = this.resetPlayers.bind(this);
+        this.resetIsWinner = this.resetIsWinner.bind(this);
+        this.resetTaken = this.resetTaken.bind(this);
     }
 
     checkForWinner() {
@@ -51,14 +55,18 @@ class GameBoard extends React.Component {
 
         if (winner === 'times') {
             this.setState({ winner: this.props.player1 }, () => {
-                alert(`${this.state.winner} wins the game!`);
-                this.setState({ disableBoard: true });
+                this.setState({
+                    isWinner: true,
+                    disableBoard: true
+                });
             })
         }
         else if (winner === 'circle') {
             this.setState({ winner: this.props.player2 }, () => {
-                alert(`${this.state.winner} wins the game!`);
-                this.setState({ disableBoard: true });
+                this.setState({
+                    isWinner: true,
+                    disableBoard: true
+                });
             })
         }
     }
@@ -69,7 +77,9 @@ class GameBoard extends React.Component {
         const name = event.target.id;
         if (this.state.disableBoard === false) {
             if (this.state[name].iconName === 'times' || this.state[name].iconName === 'circle') {
-                alert('Please select an open square.')
+               this.setState({
+                   alreadyTaken: true
+               });
             } else {
                 if (this.props.currentPlayer === this.props.player1) {
                     this.setState({ [name]: faTimes }, this.checkForWinner)
@@ -93,6 +103,7 @@ class GameBoard extends React.Component {
             eight: '',
             nine: '',
             winner: '',
+            isWinner: false,
             disableBoard: false
         })
     }
@@ -102,8 +113,20 @@ class GameBoard extends React.Component {
         this.props.clearPlayers();
     }
 
+    resetIsWinner(){
+        this.setState({
+            isWinner: false
+        })
+    }
+
+    resetTaken(){
+        this.setState({
+            alreadyTaken: false
+        })
+    }
+
     render() {
-        const { one, two, three, four, five, six, seven, eight, nine } = this.state;
+        const { one, two, three, four, five, six, seven, eight, nine, isWinner, winner, alreadyTaken } = this.state;
 
         return (
             <div className="gameBoard-main">
@@ -128,6 +151,24 @@ class GameBoard extends React.Component {
                     <button onClick={this.resetGame}>Play Again?</button>
                     <button onClick={this.resetPlayers}>Change Players?</button>
                 </div>
+                {isWinner ? (
+                    <div className="winner">
+                        <div className="winner-inner">
+                            <button onClick={this.resetIsWinner}><FontAwesomeIcon className="fontIcon" icon={faTimes} /></button>
+                            <h1>{winner}  wins the game!</h1>
+                        </div>
+                    </div>
+                ) : ''
+                }
+                {alreadyTaken ? (
+                    <div className="taken">
+                        <div className="taken-inner">
+                            <button onClick={this.resetTaken}><FontAwesomeIcon className="fontIcon" icon={faTimes} /></button>
+                            <h1>Please pick another square, that one is taken.</h1>
+                        </div>
+                    </div>
+                ) : ''
+                }
             </div>
         );
     }
