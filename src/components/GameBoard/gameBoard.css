@@ -26,14 +26,14 @@
     color: rgb(204, 0, 204);
 }
 
-.reset{
+.reset {
     display: flex;
     flex-direction: column;
     margin-left: 50px;
 }
 
-.reset button{
-    background-color:rgb(204, 0, 204);
+.reset button {
+    background-color: rgb(204, 0, 204);
     padding: 18px;
     color: white;
     border: 1px solid rgb(204, 0, 204);
@@ -41,7 +41,12 @@
     margin: 10px;
 }
 
-.winner{
+.reset button:hover {
+    background-color: rgb(204, 0, 204, 0.6);
+    border: 1px solid rgb(204, 0, 204, 0.6);
+}
+
+.winner {
     position: fixed;
     top: 0;
     left: 0;
@@ -53,7 +58,7 @@
     align-items: center;
 }
 
-.winner-inner{
+.winner-inner {
     position: relative;
     padding: 32px;
     width: 100%;
@@ -65,18 +70,24 @@
     border-radius: 20px;
     font-size: 20px;
 }
-.winner-inner button{
+
+.winner-inner button {
     align-self: flex-end;
-    background-color:rgba(138, 136, 136, 0.9);
+    background-color: rgba(138, 136, 136, 0.9);
     border: none;
     font-size: 25px;
 }
-.winner-inner h1{
-    color: white;
-    margin-top: 0; 
+
+.winner-inner button:hover{
+    font-size: 30px;
 }
 
-.taken{
+.winner-inner h1 {
+    color: white;
+    margin-top: 0;
+}
+
+.taken {
     position: fixed;
     top: 0;
     left: 0;
@@ -88,7 +99,7 @@
     align-items: center;
 }
 
-.taken-inner{
+.taken-inner {
     position: relative;
     padding: 32px;
     width: 100%;
@@ -100,13 +111,20 @@
     border-radius: 20px;
     font-size: 20px;
 }
-.taken-inner button{
+
+.taken-inner button {
     align-self: flex-end;
-    background-color:rgba(138, 136, 136, 0.9);
+    background-color: rgba(138, 136, 136, 0.9);
     border: none;
     font-size: 25px;
 }
-.taken-inner h1{
-    color: white;
-    margin-top: 0; 
+
+.taken-inner button:hover{
+    font-size: 30px;
 }
+
+.taken-inner h1 {
+    color: white;
+    margin-top: 0;
+}
+
