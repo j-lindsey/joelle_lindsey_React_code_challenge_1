@@ -36,15 +36,15 @@ class PlayerInfo extends React.Component {
         this.setState({ [name]: value });
     }
 
-    changeCurrentPlayer(){
-        if(this.state.currentPlayer === this.state.player1Name){
-            this.setState({currentPlayer: this.state.player2Name})
-        }else{
-            this.setState({currentPlayer: this.state.player1Name})
+    changeCurrentPlayer() {
+        if (this.state.currentPlayer === this.state.player1Name) {
+            this.setState({ currentPlayer: this.state.player2Name })
+        } else {
+            this.setState({ currentPlayer: this.state.player1Name })
         }
     }
 
-    clearPlayers(){
+    clearPlayers() {
         this.setState({
             playerInfo: false,
             player1Name: '',
@@ -67,17 +67,19 @@ class PlayerInfo extends React.Component {
                         </div>
                     ) : (
                         <div className="playerInput" >
-                            <label>Player 1 Name
-                                <input type="text" value={player1Name} name="player1Name" onChange={this.handleInput}></input>
-                            </label>
-                            <label>Player 2 Name
-                                <input type="text" value={player2Name} name="player2Name" onChange={this.handleInput}></input>
-                            </label>
-                            <button onClick={this.handlePlayerInfo}>Start Game</button>
+                            <div className="playerInput-inner">
+                                <label>Player 1 Name
+                                    <input type="text" value={player1Name} name="player1Name" onChange={this.handleInput}></input>
+                                </label>
+                                <label>Player 2 Name
+                                    <input type="text" value={player2Name} name="player2Name" onChange={this.handleInput}></input>
+                                </label>
+                                <button className="startGame" onClick={this.handlePlayerInfo}>Start Game</button>
+                            </div>
                         </div>
                     )}
                 </div>
-                <GameBoard currentPlayer={currentPlayer} player1={player1Name} player2={player2Name} changeCurrentPlayer={this.changeCurrentPlayer} clearPlayers={this.clearPlayers}/>
+                <GameBoard currentPlayer={currentPlayer} player1={player1Name} player2={player2Name} changeCurrentPlayer={this.changeCurrentPlayer} clearPlayers={this.clearPlayers} />
             </div>
         )
     }
