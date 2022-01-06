@@ -26,18 +26,23 @@ class GameBoard extends React.Component {
     handleClick(event) {
         const name = event.target.id;
         console.log(name);
-        if (this.props.currentPlayer === this.props.player1) {
-            this.setState({ [name]: faTimes })
+        console.log(this.state[name].iconName);
+        if (this.state[name].iconName === 'times' || this.state[name].iconName === 'circle') {
+            alert('Please select an open square.')
         } else {
-            this.setState({ [name]: faCircle })
+            if (this.props.currentPlayer === this.props.player1) {
+                this.setState({ [name]: faTimes })
+            } else {
+                this.setState({ [name]: faCircle })
+            }
+        
+            this.props.changeCurrentPlayer();
         }
-        this.props.changeCurrentPlayer();
-      
     }
 
     render() {
         const { one, two, three, four, five, six, seven, eight, nine } = this.state;
-        console.log(one);
+        
         return (
             <div className="gameBoard-main">
                 <div className="row">
