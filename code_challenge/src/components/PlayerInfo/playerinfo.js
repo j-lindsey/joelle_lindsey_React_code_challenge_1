@@ -11,23 +11,17 @@ class PlayerInfo extends React.Component {
         super(props);
         this.state = {
             playerInfo: false,
-            player1Name: 'Joelle',
-            player2Name: 'Mike',
-            currentPlayer: 'Joelle'
+            player1Name: '',
+            player2Name: '',
+            currentPlayer: ''
         };
 
         this.handlePlayerInfo = this.handlePlayerInfo.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
+        this.clearPlayers = this.clearPlayers.bind(this);
     }
 
-    componentDidMount() {
-        if (!this.playerInfo) {
-
-        } else {
-
-        }
-    }
 
     handlePlayerInfo() {
         this.setState({
@@ -50,14 +44,23 @@ class PlayerInfo extends React.Component {
         }
     }
 
+    clearPlayers(){
+        this.setState({
+            playerInfo: false,
+            player1Name: '',
+            player2Name: '',
+            currentPlayer: ''
+        })
+    }
+
 
 
     render() {
-        const { currentPlayer, player1Name, player2Name } = this.state;
+        const { currentPlayer, player1Name, player2Name, playerInfo } = this.state;
         return (
             <div className="game">
                 <div className="player-main">
-                    {true ? (
+                    {playerInfo ? (
                         <div className="playerDisplay">
                             <h2 className={(currentPlayer === player1Name ? 'active' : '')}><FontAwesomeIcon className="fontIcon" icon={faTimes} />{player1Name}</h2>
                             <h2 className={(currentPlayer === player2Name ? 'active' : '')}><FontAwesomeIcon className="fontIcon" icon={faCircle} />{player2Name}</h2>
@@ -74,7 +77,7 @@ class PlayerInfo extends React.Component {
                         </div>
                     )}
                 </div>
-                <GameBoard currentPlayer={currentPlayer} player1={player1Name} player2={player2Name} changeCurrentPlayer={this.changeCurrentPlayer} />
+                <GameBoard currentPlayer={currentPlayer} player1={player1Name} player2={player2Name} changeCurrentPlayer={this.changeCurrentPlayer} clearPlayers={this.clearPlayers}/>
             </div>
         )
     }
