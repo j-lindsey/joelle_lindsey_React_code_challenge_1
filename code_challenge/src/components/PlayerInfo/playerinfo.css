@@ -1,37 +1,73 @@
+.game {
+    display: flex;
+    flex-direction: column;
+}
+
 .playerInput {
-    background-color: white;
-    color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerInput-inner {
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background-color: rgba(138, 136, 136, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    width: 500px;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
 }
 
 .playerInput label {
-    padding: 10px;
-    width: 350px;
+    padding: 10px 0;
 }
 
 .playerInput input {
-    margin-left: 10px;
+    margin-left: 20px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px;
 }
+
+.startGame {
+    background-color: rgb(167, 0, 167);
+    padding: 18px;
+    color: white;
+    border: 1px solid rgb(167, 0, 167);
+    border-radius: 10px;
+    margin: 10px;
+}
+
 
 .playerDisplay {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .playerDisplay h2 {
-    color: magenta;
+    color: rgb(204, 0, 204);
     margin: 30px;
     padding: 20px;
+    font-size: 25px;
 }
 
 .fontIcon {
     padding: 0 10px;
 }
 
-.active{
-    border: 1px solid magenta;
+.active {
+    border: 5px solid rgb(204, 0, 204);
+    border-radius: 10px;
 }
