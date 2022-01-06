@@ -53,14 +53,14 @@
 
 .playerDisplay {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .playerDisplay h2 {
     color: rgb(204, 0, 204);
-    margin: 30px;
+    margin: 30px 100px;
     padding: 20px;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .fontIcon {

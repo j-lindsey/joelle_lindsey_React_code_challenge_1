@@ -97,7 +97,7 @@ class GameBoard extends React.Component {
         })
     }
 
-    resetPlayers(){
+    resetPlayers() {
         this.resetGame();
         this.props.clearPlayers();
     }
@@ -107,22 +107,24 @@ class GameBoard extends React.Component {
 
         return (
             <div className="gameBoard-main">
-                <div className="row">
-                    <div id='one' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={one} /></div>
-                    <div id='two' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={two} /></div>
-                    <div id='three' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={three} /></div>
-                </div>
-                <div className="row">
-                    <div id='four' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={four} /></div>
-                    <div id='five' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={five} /></div>
-                    <div id='six' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={six} /></div>
-                </div>
-                <div className="row">
-                    <div id='seven' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={seven} /></div>
-                    <div id='eight' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={eight} /></div>
-                    <div id='nine' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={nine} /></div>
-                </div>
                 <div>
+                    <div className="row">
+                        <div id='one' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={one} /></div>
+                        <div id='two' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={two} /></div>
+                        <div id='three' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={three} /></div>
+                    </div>
+                    <div className="row">
+                        <div id='four' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={four} /></div>
+                        <div id='five' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={five} /></div>
+                        <div id='six' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={six} /></div>
+                    </div>
+                    <div className="row">
+                        <div id='seven' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={seven} /></div>
+                        <div id='eight' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={eight} /></div>
+                        <div id='nine' onClick={this.handleClick}><FontAwesomeIcon className="fontIcon" icon={nine} /></div>
+                    </div>
+                </div>
+                <div className="reset">
                     <button onClick={this.resetGame}>Play Again?</button>
                     <button onClick={this.resetPlayers}>Change Players?</button>
                 </div>
